@@ -62,12 +62,12 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(to bottom, #ff9000 0, #ff5000 100%);
+  background-color: #505970;
 }
 .form-box {
   width: 400px;
   height: 420px;
-  border: solid 1px #ff3900;
+  border: solid 1px #fff;
   border-radius: 10px;
   padding: 40px 30px;
   background-color: #fff;
@@ -83,7 +83,7 @@ export default {
   width: 100%;
   display: block;
   margin: 40px auto;
-  background-color: #ff7600;
+  /* background-color: #505970; */
   border-radius: 8px;
   font-size: 20px;
 }
