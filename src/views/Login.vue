@@ -43,14 +43,8 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 
-export default {
-  name: "login",
-  components: {
-    HelloWorld
-  }
-};
+export default {};
 </script>
 
 <style scoped>
@@ -62,7 +56,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #505970;
+  background-color: #fa0016;
 }
 .form-box {
   width: 400px;

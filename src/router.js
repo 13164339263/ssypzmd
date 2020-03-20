@@ -14,6 +14,20 @@ export default new Router({
       component: Login
     },
     {
+      path: '/userhome',
+      name: 'userhome',
+      component: () => import('./views/UserHome.vue'),
+      children: [
+        {
+          path: '/userhome/userindex',
+          name: 'userindex',
+          component: () => import('./components/UserIndex.vue'),
+        },
+
+
+      ]
+    },
+    {
       path: '/home',
       name: 'home',
       component: () => import('./views/Home.vue'),

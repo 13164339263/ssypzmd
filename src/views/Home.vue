@@ -14,47 +14,60 @@
     </header>
     <div class="main">
       <div class="nav">
-        <Menu theme="dark">
-          <div class="admin-home-menu">
-            <router-link to="/home/adminindex">
-              <Icon style="margin-right:8px;" type="md-home" />管理员首页
+        <ul class="nav-ul">
+          <li>
+            <p class="nav-li-title">分类指南管理</p>
+            <router-link to="/searchguide">
+              <p class="nav-li">
+                <Icon type="md-document" />查询分类指南
+              </p>
             </router-link>
-          </div>
-          <div class="admin-home-menu">
-            <router-link to="/home/usermanage">
-              <Icon style="margin-right:8px;" type="md-home" />会员管理
+            <router-link to="/addguide">
+              <p class="nav-li">
+                <Icon type="md-document" />垃圾类别管理
+              </p>
             </router-link>
-          </div>
-          <!-- <Submenu name="1">
-            <template slot="title">
-              <Icon type="ios-paper" />权限管理
-            </template>
-            <MenuItem name="1-1">新增</MenuItem>
-            <MenuItem name="1-2">删除</MenuItem>
-            <MenuItem name="1-3">修改</MenuItem>
-          </Submenu>
-          <Submenu name="2">
-            <template slot="title">
-              <Icon type="ios-people" />用户管理
-            </template>
-            <router-link to="usermanage">
-              <MenuItem name="2-1">用户管理</MenuItem>
+          </li>
+          <li>
+            <p class="nav-li-title">投放站点管理</p>
+            <router-link to="/searchguide">
+              <p class="nav-li">
+                <Icon type="md-document" />投放站点
+              </p>
             </router-link>
-          </Submenu>
-          <Submenu name="3">
-            <template slot="title">
-              <Icon type="ios-stats" />订单管理
-            </template>
-            <MenuItem name="3-1">订单管理</MenuItem>
-          </Submenu>
-          <Submenu name="4">
-            <template slot="title">
-              <Icon type="ios-stats" />商品管理
-            </template>
-            <MenuItem name="4-1">商品上传</MenuItem>
-            <MenuItem name="4-2">商品审核</MenuItem>
-          </Submenu>-->
-        </Menu>
+            <router-link to="/addguide">
+              <p class="nav-li">
+                <Icon type="md-document" />投放站点
+              </p>
+            </router-link>
+          </li>
+          <li>
+            <p class="nav-li-title">垃圾数量统计</p>
+            <router-link to="/searchguide">
+              <p class="nav-li">
+                <Icon type="md-document" />查询分类指南
+              </p>
+            </router-link>
+            <router-link to="/addguide">
+              <p class="nav-li">
+                <Icon type="md-document" />垃圾类别管理
+              </p>
+            </router-link>
+          </li>
+          <li>
+            <p class="nav-li-title">绿色日报管理</p>
+            <router-link to="/searchguide">
+              <p class="nav-li">
+                <Icon type="md-document" />查询分类指南
+              </p>
+            </router-link>
+            <router-link to="/addguide">
+              <p class="nav-li">
+                <Icon type="md-document" />垃圾类别管理
+              </p>
+            </router-link>
+          </li>
+        </ul>
       </div>
       <div class="container">
         <router-view />
@@ -76,7 +89,7 @@ export default {};
   font-size: 30px;
   text-align: left;
   padding: 0 30px;
-  background-color: #505970;
+  background-color: #fa0016;
   color: #fff;
   border-bottom: solid 0.5px #fff;
   display: flex;
@@ -120,7 +133,26 @@ export default {};
 .nav {
   width: 240px;
   height: 100%;
-  background-color: #505970;
+  background-color: #fa0016;
+}
+.nav-ul {
+  margin: 0;
+  padding: 0;
+}
+.nav-ul li {
+  padding: 5px 0;
+  /* border-bottom: solid 1px #eee; */
+}
+.nav-ul .nav-li-title {
+  padding: 0 30px;
+  text-align: left;
+  color: #000000;
+}
+.nav-ul li p {
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  line-height: 40px;
 }
 .container {
   width: calc(100% - 240px);
