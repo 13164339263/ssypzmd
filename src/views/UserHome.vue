@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="user-home">
     <header class="header">
       <div class="logo-box">
         <div class="logo">
@@ -18,25 +18,25 @@
           <router-link to="/userhome/userindex">
             <li>首页</li>
           </router-link>
-          <router-link to="/userhome/userindex">
+          <router-link to="/userhome/allgoods/0">
             <li>所有商品</li>
           </router-link>
-          <router-link to="/userhome/userindex">
+          <router-link to="/userhome/allgoods/1">
             <li>宿舍壁纸</li>
           </router-link>
-          <router-link to="/userhome/userindex">
+          <router-link to="/userhome/allgoods/2">
             <li>宿舍地垫</li>
           </router-link>
-          <router-link to="/userhome/userindex">
+          <router-link to="/userhome/allgoods/3">
             <li>收纳整理</li>
           </router-link>
-          <router-link to="/userhome/userindex">
+          <router-link to="/userhome/allgoods/4">
             <li>文具手账</li>
           </router-link>
-          <router-link to="/userhome/userindex">
+          <router-link to="/userhome/allgoods/5">
             <li>餐具杯具</li>
           </router-link>
-          <router-link to="/userhome/userindex">
+          <router-link to="/userhome/allgoods/6">
             <li>少女装饰</li>
           </router-link>
         </ul>
@@ -111,7 +111,7 @@ export default {};
   height: 100%;
   /* background-color: #fa0016; */
   border: solid 1px red;
-  padding: 30px 20px;
+  padding: 40px 20px;
 }
 .nav ul {
   list-style: none;
@@ -125,6 +125,7 @@ export default {};
   line-height: 40px;
   font-size: 18px;
   margin-bottom: 10px;
+  border-radius: 5px;
 }
 .container {
   width: calc(100vw - 240px);

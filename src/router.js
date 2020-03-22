@@ -23,6 +23,11 @@ export default new Router({
           name: 'userindex',
           component: () => import('./components/UserIndex.vue'),
         },
+        {
+          path: '/userhome/allgoods/:id',
+          name: 'allgoods',
+          component: () => import('./components/AllGoods.vue'),
+        },
 
 
       ]

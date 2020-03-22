@@ -84,9 +84,7 @@ export default {};
 .search {
   width: 300px;
 }
-p {
-  height: 300px;
-}
+
 h2 {
   text-align: left;
   margin: 10px 0;
