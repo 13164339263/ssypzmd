@@ -45,10 +45,35 @@ export default new Router({
         {
           path: '/home/usermanage',
           name: 'usermanage',
-          component: () => import('./components/UserManage.vue'),
+          component: () => import('./components/ManageUser.vue'),
+        },
+        {
+          path: '/home/goodsmanage',
+          name: 'goodsmanage',
+          component: () => import('./components/ManageGoods.vue'),
+        },
+        {
+          path: '/home/privmanage',
+          name: 'privmanage',
+          component: () => import('./components/ManagePriv.vue'),
+        },
+        {
+          path: '/home/ordermanage',
+          name: 'ordermanage',
+          component: () => import('./components/ManageOrder.vue'),
         },
 
       ]
-    }
+    },
+    {
+      path: '/myinfo',
+      name: 'myinfo',
+      component: () => import('./views/MyInfo.vue'),
+    },
+    {
+      path: '/goodsdetail',
+      name: 'goodsdetail',
+      component: () => import('./views/GoodsDetail.vue'),
+    },
   ]
 })

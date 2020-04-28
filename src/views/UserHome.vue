@@ -6,38 +6,76 @@
           <img src="../assets/logo.jpg" alt />
         </div>
       </div>
-      <div class="shop-name">小赵雅舍专卖店</div>
+      <div class="shop-name">雅舍专卖店</div>
       <div class="user-box">
-        <div class="user-info">我的信息</div>
-        <div class="logout">退出登录</div>
+        <div class="shop-car">
+          <Button>购物车</Button>
+        </div>
+        <div class="my-collection">
+          <Button>我的收藏</Button>
+        </div>
+        <router-link to="/myinfo">
+          <div class="user-info">
+            <Button>我的信息</Button>
+          </div>
+        </router-link>
+        <div class="logout">
+          <Poptip
+            confirm
+            title="确认退出登录吗？"
+            word-wrap
+            width="200"
+            @on-ok="ok"
+            @on-cancel="cancel"
+            style="textAlign:left"
+          >
+            <Button>退出登录</Button>
+          </Poptip>
+        </div>
       </div>
     </header>
     <div class="main">
       <div class="nav">
         <ul class="ul-nav">
           <router-link to="/userhome/userindex">
-            <li>首页</li>
+            <li>
+              <Icon type="ios-home-outline" />首页
+            </li>
           </router-link>
           <router-link to="/userhome/allgoods/0">
-            <li>所有商品</li>
+            <li>
+              <Icon type="ios-search-outline" />所有商品
+            </li>
           </router-link>
           <router-link to="/userhome/allgoods/1">
-            <li>宿舍壁纸</li>
+            <li>
+              <Icon type="ios-square-outline" />宿舍壁纸
+            </li>
           </router-link>
           <router-link to="/userhome/allgoods/2">
-            <li>宿舍地垫</li>
+            <li>
+              <Icon type="ios-pricetags-outline" />宿舍地垫
+            </li>
           </router-link>
           <router-link to="/userhome/allgoods/3">
-            <li>收纳整理</li>
+            <li>
+              <Icon type="ios-hammer" />收纳整理
+            </li>
           </router-link>
           <router-link to="/userhome/allgoods/4">
-            <li>文具手账</li>
+            <li>
+              <Icon type="ios-hand-outline" />文具手账
+            </li>
           </router-link>
           <router-link to="/userhome/allgoods/5">
-            <li>餐具杯具</li>
+            <li>
+              <Icon type="ios-restaurant-outline" />餐具杯具
+            </li>
           </router-link>
           <router-link to="/userhome/allgoods/6">
-            <li>少女装饰</li>
+            <li>
+              <Icon type="ios-medical-outline" />少女装饰
+            </li>
           </router-link>
         </ul>
       </div>
@@ -50,7 +88,18 @@
 
 
 <script>
-export default {};
+export default {
+  methods: {
+    ok() {
+      this.$router.push({
+        path: "/" //跳转的路径
+      });
+    },
+    cancel() {
+      this.$Message.info("取消退出登录");
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -61,7 +110,7 @@ export default {};
   justify-content: space-between;
   /* background-color: red; */
   border-bottom: solid 1px red;
-  padding: 0 40px;
+  padding: 0 60px 0 40px;
 }
 .logo-box {
   width: 150px;
@@ -69,12 +118,22 @@ export default {};
   display: flex;
 }
 .user-box {
-  width: 200px;
+  width: 500px;
   height: 60px;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
   padding: 0 20px;
+}
+.shop-car {
+  height: 60px;
+  font-size: 16px;
+  line-height: 60px;
+}
+.my-collection {
+  height: 60px;
+  font-size: 16px;
+  line-height: 60px;
 }
 .user-info {
   height: 60px;

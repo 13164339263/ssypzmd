@@ -6,10 +6,22 @@
           <img src="../assets/logo.jpg" alt />
         </div>
       </div>
-      <div class="shop-name">小赵雅舍专卖店</div>
+      <div class="shop-name">雅舍专卖店</div>
       <div class="user-box">
         <div class="user-info">我的信息</div>
-        <div class="logout">退出登录</div>
+        <div class="logout">
+          <Poptip
+            confirm
+            title="确认退出登录吗？"
+            word-wrap
+            width="200"
+            @on-ok="ok"
+            @on-cancel="cancel"
+            style="textAlign:left;color:black"
+          >
+            <Button>退出登录</Button>
+          </Poptip>
+        </div>
       </div>
     </header>
     <div class="main">
@@ -18,16 +30,16 @@
           <router-link to="/home/adminindex">
             <li>管理员首页</li>
           </router-link>
-          <router-link to="/home">
+          <router-link to="/home/privmanage">
             <li>权限管理</li>
           </router-link>
           <router-link to="/home/usermanage">
             <li>用户管理</li>
           </router-link>
-          <router-link to="/home/">
+          <router-link to="/home/ordermanage">
             <li>订单管理</li>
           </router-link>
-          <router-link to="/home">
+          <router-link to="/home/goodsmanage">
             <li>商品管理</li>
           </router-link>
         </ul>
@@ -41,7 +53,18 @@
 
 
 <script>
-export default {};
+export default {
+  methods: {
+    ok() {
+      this.$router.push({
+        path: "/" //跳转的路径
+      });
+    },
+    cancel() {
+      this.$Message.info("取消退出登录");
+    }
+  }
+};
 </script>
 
 <style scoped>

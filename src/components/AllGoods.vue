@@ -5,13 +5,15 @@
       <div class="all-goods-box">
         <h2>所有商品</h2>
         <div class="all-goods">
-          <div class="all-goods-item">
-            <div class="goods-img">
-              <img src="../assets/goods1.jpg" alt />
+          <router-link to="/goodsdetail">
+            <div class="all-goods-item">
+              <div class="goods-img">
+                <img src="../assets/goods1.jpg" alt />
+              </div>
+              <div class="price">价格：¥99</div>
+              <div class="detail">该商品小浣熊宿舍学生电煮锅多功能家用煮面火锅小型1人2迷你小锅小电锅</div>
             </div>
-            <div class="price">价格：¥99</div>
-            <div class="detail">该商品小浣熊宿舍学生电煮锅多功能家用煮面火锅小型1人2迷你小锅小电锅</div>
-          </div>
+          </router-link>
           <div class="all-goods-item">
             <div class="goods-img">
               <img src="../assets/goods1.jpg" alt />

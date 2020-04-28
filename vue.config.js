@@ -1,12 +1,12 @@
 module.exports = {
   devServer: {
     proxy: {
-      "/ssypzmd": {
-        target: "http://127.0.0.1:8282/",
+      "/sushe": {
+        target: "http://192.168.58.49:8082/IDEASSM/",
         changeOrigin: true,
         ws: true,
         pathRewrite: {
-          "^/ssypzmd": ""
+          "^/sushe": ""
         },
         cookieDomainRewrite: {
           "*": "127.0.0.1"
