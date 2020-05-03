@@ -53,34 +53,41 @@ export default {
       orderColumns: [
         {
           title: "订单编号",
-          key: "orderinfoNumber"
+          key: "orderinfoNumber",
+          width:140,
         },
         {
           title: "收货人",
-          key: "orderinfoConsignee"
+          key: "orderinfoConsignee",
+          width:140,
         },
         {
           title: "收获地址",
-          key: "orderinfoAddress"
+          key: "orderinfoAddress",
+          // width:250,
         },
         {
           title: "手机号",
-          key: "orderinfoConsigneephone"
+          key: "orderinfoConsigneephone",
+          width:180,
         },
         {
           title: "订单状态",
           key: "orderinfoStatus",
+          width:140,
         },
         {
           title: "下单时间",
           key: "orderinfoOrdertime",
           render:(h,params)=>{
             return h("span", this.timeChange(params.row.orderinfoOrdertime));
-          }
+          },
+          width:250,
         },
         {
           title: "操作",
           key: "operation",
+           width:200,
           render: (h, params) => {
             return h("div", [
               h(
@@ -143,9 +150,11 @@ export default {
       if(this.titleContent === "新建订单"){
         // 添加订单信息
         this.$store.dispatch("newUserInfo",{param:param,that:this});
+        this.formLeft = {}
       }else{
         // 编辑订单信息
         this.$store.dispatch("editOrderInfo",{param:param,id:this.editId,that:this});
+        this.formLeft = {}
       }
     },
     cancel() {

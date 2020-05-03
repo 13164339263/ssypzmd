@@ -44,7 +44,8 @@ export default {
       logColumns: [
         {
           title: "地址",
-          key: "logisticsLocation"
+          key: "logisticsLocation",
+          width:300
         },
         {
           title: "物流单号",
@@ -121,9 +122,11 @@ export default {
       if(this.titleContent === "新建物流信息"){
         // 添加订单信息
         // this.$store.dispatch("newUserInfo",{param:param,that:this});
+        this.formLeft = {}
       }else{
         // 编辑订单信息
         this.$store.dispatch("editLogInfo",{param:param,id:this.editId,that:this});
+        this.formLeft = {}
       }
     },
     cancel() {

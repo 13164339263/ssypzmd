@@ -158,9 +158,11 @@ export default {
       if(this.titleContent === "新建商品"){
         // 添加商品信息
         this.$store.dispatch("newGoodsInfo",formData);
+        this.formLeft = {}
       }else{
         // 编辑商品信息
         this.$store.dispatch("editGoodsInfo",{param:param,id:this.editId,that:this});
+        this.formLeft = {}
       }
     },
     cancel() {

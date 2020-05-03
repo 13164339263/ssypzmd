@@ -22,7 +22,7 @@ export default {
             "userinfoPwd": param.param.userinfoPwd,
             "userinfoTruename": param.param.userinfoTruename,
             "userinfoSex": param.param.userinfoSex,
-            "userinfoPhonenumber": param.userinfoPhonenumber,
+            "userinfoPhonenumber": param.param.userinfoPhonenumber,
             "userinfoEmail": param.param.userinfoEmail,
             "userinfoCode": param.param.userinfoCode
         }).then((res) => {
@@ -160,13 +160,13 @@ export default {
             }
         }).then((res) => {
             if (res.data.code === 200) {
-                param.that.$Message.error('新建失败')
+                // param.that.$Message.error('新建失败')
             } else {
-                param.that.$Message.success('新建成功')
+                // param.that.$Message.success('新建成功')
                 store.dispatch("queryGoodsInfo");
             }
         }).catch((err) => {
-            param.that.$Message.success('新建失败')
+            // param.that.$Message.success('新建失败')
         })
     },
     // 编辑商品信息

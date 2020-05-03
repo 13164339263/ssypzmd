@@ -147,9 +147,11 @@ export default {
       if(this.titleContent === "新建用户"){
         // 添加用户信息
         this.$store.dispatch("newUserInfo",{param:param,that:this});
+        this.formLeft = {}
       }else{
         // 编辑用户信息
         this.$store.dispatch("editUserInfo",{param:param,id:this.editId,that:this});
+        this.formLeft = {}
       }
     },
     cancel() {

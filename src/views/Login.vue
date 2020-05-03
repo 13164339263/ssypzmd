@@ -132,6 +132,9 @@ export default {
 </script>
 
 <style scoped>
+*{
+  box-sizing: border-box;
+}
 .login {
   /* display: flex; */
   width: 100vw;
@@ -144,7 +147,7 @@ export default {
   opacity: 0.8;
 }
 .form-box {
-  width: 400px;
+  width: 401px;
   height: 420px;
   border: solid 1px #fff;
   border-radius: 10px;
