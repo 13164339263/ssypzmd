@@ -6,29 +6,41 @@
           <img src="../assets/logo.jpg" alt />
         </div>
       </div>
-      <div class="shop-name">小赵雅舍专卖店</div>
+      <div class="shop-name">雅舍专卖店</div>
       <div class="user-box">
         <div class="user-info">我的信息</div>
-        <div class="logout">退出登录</div>
+        <div class="logout">
+          <Poptip
+            confirm
+            title="确认退出登录吗？"
+            word-wrap
+            width="200"
+            @on-ok="ok"
+            @on-cancel="cancel"
+            style="textAlign:left;color:black"
+          >
+            <Button>退出登录</Button>
+          </Poptip>
+        </div>
       </div>
     </header>
     <div class="main">
       <div class="nav">
         <ul class="ul-nav">
           <router-link to="/home/adminindex">
-            <li>管理员首页</li>
-          </router-link>
-          <router-link to="/home">
-            <li>权限管理</li>
+            <li :class="{'nav-active':activeIndex === 1}" @click="navClick(1)">管理员首页</li>
           </router-link>
           <router-link to="/home/usermanage">
-            <li>用户管理</li>
+            <li :class="{'nav-active':activeIndex === 2}" @click="navClick(2)">用户管理</li>
           </router-link>
-          <router-link to="/home/">
-            <li>订单管理</li>
+          <router-link to="/home/ordermanage">
+            <li :class="{'nav-active':activeIndex === 3}" @click="navClick(3)">订单管理</li>
           </router-link>
-          <router-link to="/home">
-            <li>商品管理</li>
+          <router-link to="/home/goodsmanage">
+            <li :class="{'nav-active':activeIndex === 4}" @click="navClick(4)">商品管理</li>
+          </router-link>
+          <router-link to="/home/logomanage">
+            <li :class="{'nav-active':activeIndex === 5}" @click="navClick(5)">物流管理</li>
           </router-link>
         </ul>
       </div>
@@ -41,7 +53,27 @@
 
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+      activeIndex:0,
+    }
+  },
+  methods: {
+    ok() {
+      this.$router.push({
+        path: "/" //跳转的路径
+      });
+    },
+    cancel() {
+      this.$Message.info("取消退出登录");
+    },
+    navClick(n){
+      this.activeIndex = n;
+      console.log(this.activeIndex)
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -118,6 +150,14 @@ export default {};
   font-size: 18px;
   margin-bottom: 10px;
   border-radius: 5px;
+}
+.nav ul .nav-active{
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: red;
 }
 .container {
   width: calc(100vw - 240px);
