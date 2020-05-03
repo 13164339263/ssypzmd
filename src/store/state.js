@@ -4,5 +4,6 @@ export default {
     orderInfoList: [],
     goodsInfoList: [],
     logInfoList: [],
+    userInfo: {},
 
 }

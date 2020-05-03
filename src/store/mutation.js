@@ -14,4 +14,8 @@ export default {
         state.logInfoList = v;
     },
 
+    setUserInfo(state, v) {
+        state.userInfo = v;
+    },
+
 }

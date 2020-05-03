@@ -1,7 +1,7 @@
 <template>
   <div class="purchase">
     <div class="back">
-      <router-link to="/userhome">
+      <router-link to="/userhome/userindex">
         <Button type="primary">返回</Button>
       </router-link>
     </div>

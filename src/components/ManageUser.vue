@@ -128,7 +128,7 @@ export default {
   },
   created (){
     // 请求用户信息
-    this.$store.dispatch("queryUserInfo");
+    this.$store.dispatch("queryUserInfoList");
   },
   mounted(){
    

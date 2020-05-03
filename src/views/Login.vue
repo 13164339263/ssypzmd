@@ -110,7 +110,6 @@ export default {
           "userinfoPhoneNumber": this.loginForm.tel,
           "userinfoPwd":this.loginForm.pwd,
         }).then((res) => {
-          console.log(res.data.extend.userinfo.userinfoCode)
           if(res.data.extend.userinfo.userinfoCode === "000000" && this.selectValue === 0){
             this.$Message.success('管理员登录成功')
             this.$router.push({ path: "/home/adminindex" });
@@ -119,6 +118,9 @@ export default {
           }else if(res.data.extend.userinfo.userinfoCode !== "000000" && this.selectValue === 1){
             this.$Message.success('用户登录成功')
             this.$router.push({ path: "/userhome/userindex" });
+            this.$store.commit("setUserInfo", res.data.extend.userinfo)
+            sessionStorage.setItem("tel",res.data.extend.userinfo.userinfoPhonenumber)
+            sessionStorage.setItem("pwd",res.data.extend.userinfo.userinfoPwd)
           }else if(res.data.extend.userinfo.userinfoCode !== "000000" && this.selectValue === 0){
             this.$Message.error('登录失败，您不是管理员。')
           }

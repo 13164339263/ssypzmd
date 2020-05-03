@@ -6,10 +6,10 @@
           <img src="../assets/logo.jpg" alt />
         </div>
       </div>
-      <div class="shop-name">雅舍专卖店</div>
+      <div class="shop-name">雅舍宿舍用品专卖店</div>
       <div class="user-box">
         <div class="shop-car">
-          <Button>购物车</Button>
+          <Button>我的购物车</Button>
         </div>
         <div class="my-collection">
           <Button>我的收藏</Button>

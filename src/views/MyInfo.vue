@@ -1,7 +1,7 @@
 <template>
   <div class="my-info">
     <div class="back">
-      <router-link to="/userhome">
+      <router-link to="/userhome/userindex">
         <Button type="primary">返回</Button>
       </router-link>
     </div>
@@ -13,42 +13,26 @@
       </div>
       <Form class="form" :label-width="100">
         <FormItem label="用户名:">
-          <Input :disabled="!isEdit" class="input" required placeholder="请输入手机号"></Input>
+          <Input :disabled="!isEdit" class="input" required placeholder="请输入用户名" v-model="formLeft.userinfoName"></Input>
         </FormItem>
         <FormItem label="真实姓名:">
-          <Input :disabled="!isEdit" required placeholder="请输入密码"></Input>
+          <Input :disabled="!isEdit" required placeholder="请输入真实姓名" v-model="formLeft.userinfoTruename"></Input>
         </FormItem>
         <FormItem label="手机号:">
-          <Input :disabled="!isEdit" required placeholder="请输入密码"></Input>
+          <Input :disabled="!isEdit" required placeholder="请输入手机号" v-model="formLeft.userinfoPhonenumber"></Input>
         </FormItem>
         <FormItem label="密码:">
-          <Input :disabled="!isEdit" required placeholder="请输入密码"></Input>
+          <Input :disabled="!isEdit" required placeholder="请输入密码" v-model="formLeft.userinfoPwd"></Input>
         </FormItem>
-        <FormItem label="收获地址:">
-          <Input :disabled="!isEdit" required placeholder="请输入密码"></Input>
+        <FormItem label="性别:">
+          <Input :disabled="!isEdit" required placeholder="请输入性别" v-model="formLeft.userinfoSex"></Input>
         </FormItem>
-        <FormItem label="上传图片:">
-          <Tooltip content="点击图片进行图片上传">
-            <Upload
-              :disabled="!isEdit"
-              action
-              :before-upload="handleUploadicon"
-              :show-upload-list="false"
-              :format="['jpg','jpeg','png', 'gif']"
-              :on-format-error="handleFormatError1"
-            >
-              <img class="iconlabelUrl" :src="formValidate.labelUrl" alt />
-              <!-- <Input
-              v-model="formValidate.productlogo"
-              disabled
-              style="width: 120px;margin-top:24px"
-              class="left ml5 hidden"
-              value="点击上传图片"
-              ></Input>-->
-            </Upload>
-          </Tooltip>
+        <FormItem label="邮箱:">
+          <Input :disabled="!isEdit" required placeholder="请输入邮箱" v-model="formLeft.userinfoEmail"></Input>
         </FormItem>
       </Form>
+    </div>
+    <div>
     </div>
   </div>
 </template>
@@ -56,60 +40,51 @@
 
 <script>
 import axios from "axios";
+import store from '@/store' 
+import {mapState} from "vuex"
 export default {
+  computed:{
+    ...mapState(["userInfo"])
+  },
+  created(){
+    const tel = sessionStorage.getItem("tel")   
+    const pwd = sessionStorage.getItem("pwd")  
+    this.$store.dispatch("queryUserInfo",{tel:tel,pwd:pwd})  
+    this.formLeft = this.userInfo
+  },
+  mounted(){
+    this.formLeft = this.userInfo
+  },
   data() {
     return {
       isEdit: false,
-      formValidate: {
-        productlogo: "",
-        templatename: "",
-        templatetype: "1",
-        openrange: "1",
-        labelUrl: require("../assets/logo.jpg")
+      formLeft: {
+        userinfoName:'',
+        userinfoTruename:'',
+        userinfoPhonenumber:'',
+        userinfoPwd:'',
+        userinfoSex:'',
+        userinfoEmail:'',
       }
     };
   },
   methods: {
-    handleUploadicon(file) {
-      let BASE_URL = "../assets/";
-      let splic = file.name.split(".");
-      if (
-        splic[splic.length - 1] == "png" ||
-        splic[splic.length - 1] == "jpg" ||
-        splic[splic.length - 1] == "gif" ||
-        splic[splic.length - 1] == "jpeg"
-      ) {
-        let formData = new FormData();
-        console.log(formData);
-        formData.append("file", file);
-        let config = {
-          headers: {
-            "Content-Type": "multipart/form-data"
-          }
-        };
-        console.log(formData.get("file"));
-        axios
-          .post(BASE_URL + "/fileUpload", formData, config)
-          .then(res => {
-            if (res.code == "success") {
-              this.formValidate.labelUrl = res.data;
-              this.formValidate.productlogo = res.data;
-            } else {
-            }
-          })
-          .catch(() => {});
-        return false;
-      }
-    },
-    handleFormatError1(file) {
-      this.$Message.info("图片格式不正确,请上传正确的图片格式");
-    },
     editBtn() {
       this.isEdit = true;
     },
     saveBtn() {
       this.isEdit = false;
       // 发起请求
+      const id = this.userInfo.userinfoId
+      const param = {
+        userinfoName:this.formLeft.userinfoName,
+        userinfoTruename:this.formLeft.userinfoTruename,
+        userinfoPhonenumber:this.formLeft.userinfoPhonenumber,
+        userinfoPwd:this.formLeft.userinfoPwd,
+        userinfoSex:this.formLeft.userinfoSex,
+        userinfoEmail:this.formLeft.userinfoEmail,
+      }
+      this.$store.dispatch("editUserInfo",{param:param,id:id,that:this})
     }
   }
 };
@@ -126,7 +101,7 @@ export default {
 }
 .info-container {
   width: 500px;
-  height: 600px;
+  height: 500px;
   margin: 50px auto;
   padding: 5px 10px;
   border: solid 2px #f3f3f3;

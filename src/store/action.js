@@ -5,8 +5,8 @@ import store from "../store";
 axios.defaults.withCredentials = true; // 允许携带cookie
 
 export default {
-    // 获取用户信息
-    queryUserInfo() {
+    // 获取用户信息列表
+    queryUserInfoList() {
         const base = "/ssypzmd"
         axios.post(base + "/user/user/select").then((res) => {
             store.commit("setUserInfoList", res.data.extend.list)
@@ -30,7 +30,7 @@ export default {
                 param.that.$Message.error('新建失败')
             } else {
                 param.that.$Message.success('新建成功')
-                store.dispatch("queryUserInfo");
+                store.dispatch("queryUserInfoList");
             }
         }).catch((err) => {
             param.that.$Message.success('新建失败')
@@ -53,7 +53,7 @@ export default {
                 param.that.$Message.error('编辑失败')
             } else {
                 param.that.$Message.success('编辑成功')
-                store.dispatch("queryUserInfo");
+                store.dispatch("queryUserInfoList");
             }
         }).catch((err) => {
             param.that.$Message.error('编辑失败')
@@ -70,7 +70,7 @@ export default {
                 param.that.$Message.error('删除失败')
             } else {
                 param.that.$Message.success('删除成功')
-                store.dispatch("queryUserInfo");
+                store.dispatch("queryUserInfoList");
             }
         }).catch((err) => {
             param.that.$Message.error('删除失败')
@@ -228,7 +228,7 @@ export default {
     // "logisticsPostmanphone": param.param.logisticsPostmanphone,
     // "logisticsStatus": param.param.logisticsStatus,
     //     }).then((res) => {
-    //         store.dispatch("queryUserInfo");
+    //         store.dispatch("queryUserInfoList");
     //         param.that.$Message.success('新建成功')
     //     }).catch((err) => {
     //         param.that.$Message.success('新建失败')
@@ -271,6 +271,29 @@ export default {
             param.that.$Message.error('删除失败')
         })
     },
+
+
+
+
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 获取用户信息
+    queryUserInfo(store, obj) {
+        const base = "/ssypzmd"
+        axios.post(base + "/user/user/login", {
+            "userinfoPhoneNumber": obj.tel,
+            "userinfoPwd": obj.pwd,
+        }).then((res) => {
+            console.log(res.data)
+            store.commit("setUserInfo", res.data.extend.userinfo)
+        }).catch((err) => {
+            console.log(err)
+        })
+    },
+
 
 
 

@@ -6,7 +6,7 @@
           <img src="../assets/logo.jpg" alt />
         </div>
       </div>
-      <div class="shop-name">雅舍专卖店</div>
+      <div class="shop-name">雅舍宿舍用品专卖店</div>
       <div class="user-box">
         <div class="user-info">我的信息</div>
         <div class="logout">
@@ -157,7 +157,7 @@ export default {
   font-size: 18px;
   margin-bottom: 10px;
   border-radius: 5px;
-  background-color: red;
+  background-color: rgb(255, 136, 0);
 }
 .container {
   width: calc(100vw - 240px);
